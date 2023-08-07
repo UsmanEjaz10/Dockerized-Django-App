@@ -1,14 +1,13 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.views import View
-from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from django.db import transaction
-from django.contrib.auth import authenticate, logout, login
+from django.contrib.auth.models import User
 
-class Authentication(View):
+class Authenticate(View):
 
     def get(self, request):
-        return render(request, 'login.html')
+        return render(request, "login.html")
     
     def post(self, request):
         with transaction.atomic():
@@ -24,9 +23,7 @@ class Authentication(View):
                 obj = User.objects.get(username=username)
                 per = obj.get_all_permissions()
                 print("Permissions allocated are: ", per, user)
-                return redirect("browse")
+                return render(request,"browse.html", {'user': request.user})
             else:
-                messages.warning(request, "Invalid username or password")
-                return redirect("login")
+                return render(request, "login.html")
         
-

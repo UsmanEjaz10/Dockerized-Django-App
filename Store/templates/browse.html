@@ -1,0 +1,7 @@
+{% extends 'base.html'%}
+
+{% block body %}
+
+<h1>Welcome {% if user%}{{user.username}} !!! {% endif%}</h1>
+
+{% endblock body %}

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Authentication_views
+from . import views
 
 urlpatterns = [
-    path("", Authentication_views.Authentication.as_view(), "login"),
+    path("", views.Authenticate.as_view(), name='login'),
 ]
 
