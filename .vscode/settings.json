@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1bf2f62c-badf-498a-86c2-a831b6fd2486/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/just-cart",
+    "appService.deploySubpath": "."
+}
